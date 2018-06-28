@@ -1,0 +1,7 @@
+# 服务提供者配置
+dubbo:
+  registry:
+    address: 127.0.0.1:2181 # 注册中心注册地址：端口
+
+server:
+  port: 8082

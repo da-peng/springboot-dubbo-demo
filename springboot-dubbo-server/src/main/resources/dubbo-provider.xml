@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+    <!-- 提供方应用信息，用于计算依赖关系 提供方名称 -->
+    <dubbo:application name="user-service"  />
+    <!-- 注册中心服务地址 -->
+    <dubbo:registry id="zookeeper" protocol="zookeeper" address="${dubbo.registry.address}" />
+    <!-- 用dubbo协议在30001 -->
+    <!--协议配置，用于配置提供服务的协议信息，协议由提供方指定，消费方被动接受。-->
+    <dubbo:protocol name="dubbo" port="${dubbo.protocol.port}" />
+
+    <dubbo:annotation package="com.qlchat.user.impl" />
+    <!-- 声明需要暴露的服务接口 -->
+    <!--protocol 指该应用用 dubbo 协议在 28080 端口暴露服务，其他应用可以通过这个接口调用服务。-->
+    <!--<dubbo:service interface="com.qlchat.user.api.IDemoService" ref="computeService"-->
+                   <!--version="1.0" registry="zookeeper"/>-->
+    <!--<dubbo:monitor/> 监控中心配置，用于配置连接监控中心相关信息，可选。-->
+
+    <!-- 具体服务接口的实现 -->
+    <!--<bean id="computeService" class="com.qlchat.user.impl.IDemoServiceImpl" />-->
+
+
+</beans>
